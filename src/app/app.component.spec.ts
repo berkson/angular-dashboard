@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { DashboardModule } from './dashboard';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      imports: [DashboardModule],
     }).compileComponents();
   });
 
@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'dashboard'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dashboard');
+    expect(app.title).toEqual('Dashboard');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('dashboard app is running!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Dashboard');
   });
 });
